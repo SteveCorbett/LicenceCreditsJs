@@ -1,0 +1,30 @@
+{
+  "name": "licence-checker-js",
+  "private": false,
+  "version": "1.0.0",
+  "publisher": "Corbett Technologies Pty Ltd",
+  "author": "Stephen Corbett",
+  "keywords": [
+    "licence",
+    "license",
+    "webpack"
+  ],
+  "description": "A basic HTML and JavaScript app to display the licences of all the dependencies in a project.",
+  "scripts": {
+    "prebuild": "node extractLicences.js",
+    "build": "cp ./index.html ./dist || copy .\\index.html .\\dist && npx webpack",
+    "postinstall": "license-checker --production --json> ./licences.json"
+  },
+  "license": "0BSD",
+  "dependencies": {
+    "roboto-fontface": "^0.10.0",
+    "webfontloader": "^1.6.28"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.3",
+    "license-checker": "^25.0.1",
+    "style-loader": "^3.3.2",
+    "webpack": "^5.78.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
