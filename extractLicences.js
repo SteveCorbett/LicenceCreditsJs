@@ -16,12 +16,12 @@ try {
 
   const licences = [];
   for (const [key, value] of Object.entries(rawLicences)) {
-    if (key === myName) {
+    if ([myName, project.name].includes(key)) {
       continue;
     }
     let packageLicence = "";
     const name = getNameSansVersion(key);
-    
+
     if (value.licenseFile !== undefined) {
       const nameParts = value.licenseFile.split("/");
       if (
